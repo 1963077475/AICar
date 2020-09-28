@@ -31,24 +31,16 @@ public class ContentRecycleViewAdapter extends RecyclerView.Adapter<ContentRecyc
     public ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.content_item, parent, false);
         ViewHolder viewHolder=new ViewHolder(view);
-        viewHolder.content.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               int position=viewHolder.getAdapterPosition();
-                Uri uri=Uri.parse("https://voice.baidu.com/act/newpneumonia/newpneumonia/?from=osari_pc_3");
-                Intent intent=new Intent(Intent.ACTION_VIEW,uri);
-                v.getContext().startActivity(intent);
-            }
-        });
+
         return viewHolder;
     }
 
     @SuppressLint("ResourceAsColor")
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.imageView.setBackgroundColor(R.color.color_00ff00);
-        holder.title.setText(contentBeans.get(position).getContentTitle());
-        holder.content.setText(contentBeans.get(position).getContent());
+        holder.title.setText(contentBeans.get(position).getItemName());
+        holder.imageView.setImageResource(contentBeans.get(position).getItemImage());
+        holder.content.setText(contentBeans.get(position).getItemContent());
 
     }
 
@@ -65,7 +57,8 @@ public class ContentRecycleViewAdapter extends RecyclerView.Adapter<ContentRecyc
             super(itemView);
             imageView= itemView.findViewById(R.id.content_image);
             title=itemView.findViewById(R.id.content_title);
-            content=itemView.findViewById(R.id.content_content);
+            content=itemView.findViewById(R.id.content);
+
         }
     }
 }

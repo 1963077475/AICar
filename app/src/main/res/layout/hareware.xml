@@ -1,20 +1,40 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
     tools:ignore="MissingConstraints">
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="设备管理"
-        android:textSize="20sp"
-        android:layout_gravity="center"/>
-    <com.github.mikephil.charting.charts.LineChart
+    <VideoView
         android:layout_width="match_parent"
-        android:id="@+id/chart"
-        android:layout_height="200dp"/>
+        android:layout_marginTop="50dp"
+        android:layout_height="200dp"
+        android:id="@+id/video"/>
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="摄像头画面"
+        android:layout_marginBottom="50dp"
+        android:textSize="20dp"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="点击连接设备"
+        android:layout_marginBottom="20dp"
+        android:background="@color/colorAccent"
+        android:id="@+id/connectionButton"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:text="开启摄像头画面"
+        android:background="@color/colorAccent"
+        android:id="@+id/connectionVideo"/>
+
+
+
+
 </LinearLayout>

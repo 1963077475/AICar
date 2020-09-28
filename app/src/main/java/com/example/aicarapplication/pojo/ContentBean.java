@@ -1,40 +1,42 @@
 package com.example.aicarapplication.pojo;
 
 public class ContentBean {
-    private int contentImage;
-    private String contentTitle;
-    private String content;
+   private String ItemName;
+   private Integer itemImage;
+   private String itemContent;
 
-    public ContentBean() {
+    public ContentBean(String itemName, Integer itemImage, String itemContent) {
+        ItemName = itemName;
+        this.itemImage = itemImage;
+        this.itemContent = itemContent;
     }
 
-    public ContentBean(int contentImage, String contentTitle, String content) {
-        this.contentImage = contentImage;
-        this.contentTitle = contentTitle;
-        this.content = content;
+    public String getItemContent() {
+        return itemContent;
     }
 
-    public int getContentImage() {
-        return contentImage;
+    public void setItemContent(String itemContent) {
+        this.itemContent = itemContent;
     }
 
-    public void setContentImage(int contentImage) {
-        this.contentImage = contentImage;
+    public ContentBean(String itemName, Integer itemImage) {
+        ItemName = itemName;
+        this.itemImage = itemImage;
     }
 
-    public String getContentTitle() {
-        return contentTitle;
+    public String getItemName() {
+        return ItemName;
     }
 
-    public void setContentTitle(String contentTitle) {
-        this.contentTitle = contentTitle;
+    public void setItemName(String itemName) {
+        ItemName = itemName;
     }
 
-    public String getContent() {
-        return content;
+    public Integer getItemImage() {
+        return itemImage;
     }
 
-    public void setContent(String content) {
-        this.content = content;
+    public void setItemImage(Integer itemImage) {
+        this.itemImage = itemImage;
     }
 }

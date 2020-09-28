@@ -1,5 +1,10 @@
 package com.example.aicarapplication.adapter;
 
+import android.app.AlertDialog;
+import android.content.Context;
+import android.content.DialogInterface;
+import android.content.Intent;
+import android.net.Uri;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -11,6 +16,7 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.aicarapplication.Activity.TeamActivity;
 import com.example.aicarapplication.R;
 import com.example.aicarapplication.pojo.ItemBean;
 
@@ -18,7 +24,9 @@ import java.util.List;
 
 public class ItemRecycleViewAdapter extends  RecyclerView.Adapter<ItemRecycleViewAdapter.ViewHolder> {
     private List<ItemBean> itemBeanList;
-    public ItemRecycleViewAdapter(List<ItemBean> data) {
+    private Context context;
+    public ItemRecycleViewAdapter(Context context, List<ItemBean> data) {
+        this.context=context;
         itemBeanList = data ;
     }
     @NonNull
@@ -34,12 +42,34 @@ public class ItemRecycleViewAdapter extends  RecyclerView.Adapter<ItemRecycleVie
 
 
         });
-        viewHolder.textView.setOnClickListener(new View.OnClickListener() {
+        viewHolder.imageView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 int position=viewHolder.getAdapterPosition();
                 ItemBean itemBean = itemBeanList.get(position);
-                Toast.makeText(v.getContext(),itemBean.getItemName(),Toast.LENGTH_SHORT).show();
+                switch (itemBean.getItemImage()){
+                    case R.mipmap.team:
+                        context.startActivity(new Intent(context, TeamActivity.class));
+                        break;
+                    case R.mipmap.join:
+                        Uri uri=Uri.parse("https://github.com/1963077475/AICar");
+                        Intent intent=new Intent();
+                        intent.setData(uri);
+                        context.startActivity(intent);
+                        break;
+                    case R.mipmap.info:
+                        AlertDialog.Builder builder=new AlertDialog.Builder(context);
+                        builder.setTitle("敬请期待!");
+                        builder.setMessage("敬请期待!");
+                        builder.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        }).show();
+
+
+                }
             }
         });
         return viewHolder;
