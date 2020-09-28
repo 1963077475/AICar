@@ -23,6 +23,7 @@ import androidx.fragment.app.Fragment;
 import com.example.aicarapplication.R;
 import com.example.aicarapplication.data.ApiConfig;
 import com.github.mikephil.charting.charts.PieChart;
+
 import com.github.mikephil.charting.components.Legend;
 
 import com.github.mikephil.charting.data.Entry;
@@ -32,7 +33,7 @@ import com.github.mikephil.charting.data.PieDataSet;
 import com.github.mikephil.charting.utils.ColorTemplate;
 
 import java.util.ArrayList;
-import java.util.EmptyStackException;
+
 
 public class EnvFragment extends Fragment {
     private static EnvFragment instance = null;
@@ -52,6 +53,8 @@ public class EnvFragment extends Fragment {
         button=view.findViewById(R.id.start_button);
         Legend legend = pieChart.getLegend();
         legend.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);
+        //legend.setDirection(Legend.LegendDirection.LEFT_TO_RIGHT);
+        //legend.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);
         pieChart.setCenterTextSize(15);
         pieChart.setNoDataText("正在等待数据刷新");
         button.setOnClickListener(new View.OnClickListener() {
@@ -106,12 +109,8 @@ public class EnvFragment extends Fragment {
         values.add(new Entry((float)Math.random(),2));
         values.add(new Entry((float)Math.random(),3));
         ArrayList<Integer> colors=new ArrayList<>();
-        colors.add(Color.BLACK);
-        colors.add(Color.BLUE);
-        colors.add(Color.RED);
-        colors.add(Color.GREEN);
-        PieDataSet dataSet=new PieDataSet(values,"");
-        dataSet.setColors(colors);
+        PieDataSet dataSet=new PieDataSet(values,"环境监测");
+        dataSet.setColors(ColorTemplate.COLORFUL_COLORS);
         PieData pieData=new PieData(names,dataSet);
         return pieData;
     }
