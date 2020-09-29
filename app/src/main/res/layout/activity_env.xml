@@ -18,6 +18,15 @@
         android:layout_marginBottom="25dp"
         android:id="@+id/start_button"
         android:background="@color/cardview_light_background"/>
+    <Button
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="历史数据"
+        android:layout_marginTop="25dp"
+        android:layout_marginBottom="25dp"
+        android:id="@+id/history"
+        android:background="@color/cardview_light_background"/>
+
 
 
 

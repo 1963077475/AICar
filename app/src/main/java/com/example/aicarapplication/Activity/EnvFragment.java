@@ -3,6 +3,7 @@ package com.example.aicarapplication.Activity;
 
 import android.app.ProgressDialog;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import android.view.LayoutInflater;
@@ -33,7 +34,7 @@ import java.util.ArrayList;
 public class  EnvFragment extends Fragment {
     private static EnvFragment instance = null;
     private PieChart pieChart;
-    private Button button;
+    private Button button,history;
     static EnvFragment getInstance() {
         if (instance == null) {
             instance = new EnvFragment();
@@ -46,6 +47,8 @@ public class  EnvFragment extends Fragment {
         View view = inflater.inflate(R.layout.activity_env, container, false);
         pieChart=view.findViewById(R.id.env_piechart);
         button=view.findViewById(R.id.start_button);
+        history=view.findViewById(R.id.history);
+        // todo
         Legend legend = pieChart.getLegend();
         legend.setPosition(Legend.LegendPosition.RIGHT_OF_CHART);
         //legend.setDirection(Legend.LegendDirection.LEFT_TO_RIGHT);
@@ -87,6 +90,12 @@ public class  EnvFragment extends Fragment {
             }
 
 
+        });
+        history.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getContext(),HistoryActivity.class));
+            }
         });
 
         return view;
