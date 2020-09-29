@@ -97,34 +97,35 @@ public class HardwareActivity extends Fragment implements View.OnClickListener {
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.connectionButton:
-                if(ApiConfig.ID==null){
-                    final EditText editText=new EditText(getContext());
-                    AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
-                    builder.setIcon(R.mipmap.ic_launcher_round);
-                    builder.setTitle("请输入设备号").setView(editText);
-                    builder.setPositiveButton("确定", (dialog, which) -> {
-                        Log.d("TAG", "onClick: "+editText.getText().toString());
-                        if(editText.getText().toString().equals("1963077")){
-                            ApiConfig.ID=editText.getText().toString();
-                            Toast.makeText(getContext(), "连接设备成功!", Toast.LENGTH_SHORT).show();
-                            getActivity().runOnUiThread(() -> {
-                                connectionHare.setText("点击解除设备(当前设备ID+"+ApiConfig.ID+")");
-
-                            });
-                        }else {
-                            Toast.makeText(getContext(), "设备号错误，请重试!", Toast.LENGTH_SHORT).show();
-                        }
-
-
-                    });
-                    builder.show();
-                }else {
-                    ApiConfig.ID=null;
-                    Toast.makeText(getContext(),"解除成功",Toast.LENGTH_SHORT).show();
-                    getActivity().runOnUiThread(()->{
-                        connectionHare.setText("点击连接设备");
-                    });
-                }
+                //if(ApiConfig.ID==null){
+//                    final EditText editText=new EditText(getContext());
+//                    AlertDialog.Builder builder=new AlertDialog.Builder(getContext());
+//                    builder.setIcon(R.mipmap.ic_launcher_round);
+//                    builder.setTitle("请输入设备号").setView(editText);
+//                    //builder.setPositiveButton("确定", (dialog, which) -> {
+//                        Log.d("TAG", "onClick: "+editText.getText().toString());
+//                        if(editText.getText().toString().equals("1963077")){
+//                            ApiConfig.ID=editText.getText().toString();
+//                            Toast.makeText(getContext(), "连接设备成功!", Toast.LENGTH_SHORT).show();
+//                            getActivity().runOnUiThread(() -> {
+//                                connectionHare.setText("点击解除设备(当前设备ID+"+ApiConfig.ID+")");
+//
+//                            });
+//                        }else {
+//                            Toast.makeText(getContext(), "设备号错误，请重试!", Toast.LENGTH_SHORT).show();
+//                        }
+//
+//
+//                    });
+                        Toast.makeText(getContext(), "设备未开启！", Toast.LENGTH_SHORT).show();
+                    //builder.show();
+//                }else {
+//                    ApiConfig.ID=null;
+//                    Toast.makeText(getContext(),"解除成功",Toast.LENGTH_SHORT).show();
+//                    getActivity().runOnUiThread(()->{
+//                        connectionHare.setText("点击连接设备");
+//                    });
+//                }
 
             case R.id.connectionVideo:
                 if(ApiConfig.ID==null)
