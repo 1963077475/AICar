@@ -78,7 +78,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         CircleImageView imageView = navigationView.getHeaderView(0).findViewById(R.id.circleImage);
         setSupportActionBar(toolbar);
         imageView.setOnClickListener(this);
-        ActionBar actionBar=getSupportActionBar();
+
         /*设置选择item监听*/
        navigationView.setNavigationItemSelectedListener(this);
 

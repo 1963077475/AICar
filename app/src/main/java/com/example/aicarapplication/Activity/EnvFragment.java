@@ -1,15 +1,10 @@
 package com.example.aicarapplication.Activity;
 
-import android.app.AlertDialog;
-import android.app.Dialog;
+
 import android.app.ProgressDialog;
-import android.content.Context;
-import android.graphics.Color;
-import android.graphics.DashPathEffect;
+
 import android.os.Bundle;
-import android.os.Handler;
-import android.os.SystemClock;
-import android.view.DragAndDropPermissions;
+
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -35,7 +30,7 @@ import com.github.mikephil.charting.utils.ColorTemplate;
 import java.util.ArrayList;
 
 
-public class EnvFragment extends Fragment {
+public class  EnvFragment extends Fragment {
     private static EnvFragment instance = null;
     private PieChart pieChart;
     private Button button;
